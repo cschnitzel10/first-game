@@ -4,11 +4,17 @@
 // document.querySelector("body").style.backgroundSize = "cover";
 
 
+window.addEventListener('click', () => {
+    let audioBackground = new Audio('./images/noise_background.mp3');
+audioBackground.play();
+})
+
 const pigeon = document.querySelector("#pigeon");
 
 let counterIsRunning = false;
 
 pigeon.addEventListener("click", () => {
+    play();
     increaseScore();
     movePigeon();
    if (!counterIsRunning) {
@@ -16,6 +22,10 @@ pigeon.addEventListener("click", () => {
         // addScoreSpan();
 });
 
+const play = () => {
+    let audio = new Audio('./images/Pigeon_shot.mp3');
+    audio.play();
+  };
 
 
 const decreaseCounter = () => {
@@ -34,7 +44,7 @@ counterIsRunning = true;
     }, 1000)    
 };
 
-// make setInterval stopp and display message
+// make setInterval stopp and display message that is not ALERT
 
 
 const increaseScore = () => {
@@ -74,8 +84,7 @@ const movePigeon = () => {
     console.log(height);
 };
 
-// solve width & height. Maybe just put background in div and use css.
-// I added style.right to it but it didn't do anything
+// solve width & height. 
 
 // const addScoreSpan = (score, this) => {
 //     const newSpan = document.createElement('span');
